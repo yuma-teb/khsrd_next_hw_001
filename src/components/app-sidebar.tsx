@@ -1,32 +1,30 @@
+"use client";
+
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarFooter,
-	SidebarGroup,
-	SidebarGroupContent,
-	SidebarGroupLabel,
 	SidebarHeader,
 	SidebarMenu,
-	SidebarMenuAction,
 	SidebarMenuButton,
 	SidebarMenuItem,
-	SidebarTrigger,
 } from "@/components/ui/sidebar";
+
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { USER_PROFILE_MOCK } from "@/_mock/_user-profile";
 import { _SIDE_BAR_MOCK } from "@/_mock/_side-bar-mock";
 import Link from "next/link";
 import { Settings } from "lucide-react";
-
-interface Props {
-	currentPath: string;
-}
+import { usePathname } from "next/navigation";
 
 const isCurrentPath = (itemPath: string, currentPath: string): boolean => {
 	return itemPath === currentPath;
 };
 
-export function AppSidebar({ currentPath }: Readonly<Props>) {
+export function AppSidebar() {
+	const pathname = usePathname();
+	console.log("path name");
+
 	return (
 		<>
 			<Sidebar variant="floating">
@@ -44,7 +42,7 @@ export function AppSidebar({ currentPath }: Readonly<Props>) {
 							<SidebarMenuItem key={item.name}>
 								<SidebarMenuButton
 									asChild
-									isActive={isCurrentPath(currentPath, item.link as string)}
+									isActive={isCurrentPath(pathname, item.link as string)}
 								>
 									<Link href={item?.link as string}>
 										<item.icon />
