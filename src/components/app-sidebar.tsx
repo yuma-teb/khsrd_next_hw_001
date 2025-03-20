@@ -23,7 +23,6 @@ const isCurrentPath = (itemPath: string, currentPath: string): boolean => {
 
 export function AppSidebar() {
 	const pathname = usePathname();
-	console.log("path name");
 
 	return (
 		<>

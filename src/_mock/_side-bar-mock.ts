@@ -18,8 +18,8 @@ export interface ISideBar {
 
 export const _SIDE_BAR_MOCK: ISideBar[] = [
 	{ name: "Home", icon: Home, link: "/" },
-	{ name: "Book Categories", icon: Book, link: "/books" },
-	{ name: "Old-School Cartoons", icon: Tv, link: "/cartoons" },
+	{ name: "Book Categories", icon: Book, link: "/books?type=book" },
+	{ name: "Old-School Cartoons", icon: Tv, link: "/cartoons?type=cartoon" },
 	{ name: "Movies & TV Shows", icon: Tv, link: "/movies-tv" },
 	{ name: "Music", icon: Music, link: "/music" },
 	{ name: "Photography", icon: Camera, link: "/photography" },

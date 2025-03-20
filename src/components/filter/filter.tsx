@@ -1,23 +1,37 @@
-"use client";
-
 import {
 	Select,
-	SelectItem,
-	SelectTrigger,
 	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
 	SelectValue,
-} from "../ui/select";
+} from "@/components/ui/select";
+import { ResBookCategory } from "@/types/book";
 
-export default function FilterComponent() {
+interface Props {
+	categories: ResBookCategory[];
+}
+
+export default function FilterClientComponent({ categories }: Readonly<Props>) {
 	return (
 		<Select>
 			<SelectTrigger className="w-[180px]">
-				<SelectValue placeholder="Theme" />
+				<SelectValue placeholder="Select a fruit" />
 			</SelectTrigger>
 			<SelectContent>
-				<SelectItem value="light">Light</SelectItem>
-				<SelectItem value="dark">Dark</SelectItem>
-				<SelectItem value="system">System</SelectItem>
+				<SelectGroup>
+					<SelectLabel>Fruits</SelectLabel>
+					{categories?.map((category) => (
+						<SelectItem value={category.id as any}>
+							{category.book_cate_name}
+						</SelectItem>
+					))}
+					<SelectItem value="banana">Banana</SelectItem>
+					<SelectItem value="blueberry">Blueberry</SelectItem>
+					<SelectItem value="grapes">Grapes</SelectItem>
+					<SelectItem value="pineapple">Pineapple</SelectItem>
+				</SelectGroup>
 			</SelectContent>
 		</Select>
 	);

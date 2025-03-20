@@ -21,7 +21,6 @@ export default async function DetailLayout({
 	const headerList = await headers();
 	const pathname = headerList.get("x-invoke-path") || "";
 	const pathSegments = pathname.split("/");
-	console.log("seg ment", pathname, pathSegments);
 	const contentType = pathSegments[0];
 
 	return (
