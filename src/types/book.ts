@@ -7,3 +7,9 @@ export interface ResBooks {
 	image: string;
 	book_cat_id: number;
 }
+
+export interface ResBookCategory {
+	id: number;
+	created_at: string;
+	book_cate_name: string;
+}
